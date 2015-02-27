@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
   #  Supports git, hg, bzr, svn and HTTP.
   #
 
-  s.source       = { :http => "https://rubygems.org/downloads/calabash-cucumber-0.12.3.gem", :type => "tgz" }
+  s.source       = { :http => "https://rubygems.org/downloads/calabash-cucumber-0.12.3.gem", :type => ":tgz" }
 
 
   # ――― Source Code ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
