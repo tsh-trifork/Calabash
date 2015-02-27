@@ -132,6 +132,6 @@ Pod::Spec.new do |s|
   s.requires_arc = false
 
   s.xcconfig = { "OTHER_LDFLAGS" => "-force_load \"$(PODS_ROOT)/Calabash/calabash.framework/calabash\" -lstdc++" }
-  s.dependency "CFNetwork"
+  s.ios.framework = "CFNetwork"
 
 end
