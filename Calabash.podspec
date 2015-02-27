@@ -39,8 +39,8 @@ Pod::Spec.new do |s|
   #  Popular ones are 'MIT', 'BSD' and 'Apache License, Version 2.0'.
   #
 
-  s.license      = "MIT (example)"
-  # s.license      = { :type => "Eclipse Public License 1.0", :text => "Calabash-ios Copyright (2015) Karl Krukow. All rights reserved.\nThe use and distribution terms for this software are covered by the\nEclipse Public License 1.0\n(http://opensource.org/licenses/eclipse-1.0.php) which can be found in\nthe file epl-v10.html at the root of this distribution.  By using this\nsoftware in any fashion, you are agreeing to be bound by the terms of\nthis license.  You must not remove this notice, or any other, from\nthis software." }
+  # s.license      = "MIT (example)"
+  s.license      = { :type => "Eclipse Public License 1.0", :text => "Calabash-ios Copyright (2015) Karl Krukow. All rights reserved.\nThe use and distribution terms for this software are covered by the\nEclipse Public License 1.0\n(http://opensource.org/licenses/eclipse-1.0.php) which can be found in\nthe file epl-v10.html at the root of this distribution.  By using this\nsoftware in any fashion, you are agreeing to be bound by the terms of\nthis license.  You must not remove this notice, or any other, from\nthis software." }
 
 
   # ――― Author Metadata  ――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -107,7 +107,10 @@ Pod::Spec.new do |s|
   # s.resources = "Resources/*.png"
 
   s.preserve_paths = "calabash.framework"
-  s.prepare_command = "\t\t\ttar xzf data.tar.gz\n\t\t\tunzip staticlib/calabash.framework.zip\n"
+  s.prepare_command = <<-CMD
+			tar xzf data.tar.gz
+			unzip staticlib/calabash.framework.zip
+                   CMD
 
 
   # ――― Project Linking ―――――――――――――――――――――――――――――――――――――――――――――――――――――――――― #
@@ -116,7 +119,7 @@ Pod::Spec.new do |s|
   #  the lib prefix of their name.
   #
 
-  # s.framework  = "SomeFramework"
+  s.ios.framework = "CFNetwork"
   # s.frameworks = "SomeFramework", "AnotherFramework"
 
   # s.library   = "iconv"
@@ -130,8 +133,7 @@ Pod::Spec.new do |s|
   #  you can include multiple dependencies to ensure it works.
 
   s.requires_arc = false
-
   s.xcconfig = { "OTHER_LDFLAGS" => "-force_load \"$(PODS_ROOT)/Calabash/calabash.framework/calabash\" -lstdc++" }
-  s.ios.framework = "CFNetwork"
+
 
 end
